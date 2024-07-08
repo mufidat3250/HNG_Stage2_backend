@@ -1,4 +1,3 @@
-const { response } = require("express");
 const { Organisation, User } = require("../models");
 
 const { v4: uuidv4 } = require("uuid");
@@ -13,7 +12,16 @@ const createOrganization = async (req, res, next) => {
       description,
     };
     const organisation = await Organisation.create(newOrganisation);
-    res.status(201).json(organisation);
+    res.status(201).json({
+        status: "success",
+        message: "Organisation created successfully",
+        data: {
+        orgId: organisation.orgId, 
+        name: organisation.name, 
+        description: organisation.description
+        }
+    }
+    );
   } catch (error) {
     next(error);
   }

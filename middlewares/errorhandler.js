@@ -9,8 +9,14 @@ const errorHandler = (err, req, res, next) => {
         field: errorPath[0],
         message: errorMessages[0]
        } });
-
-    }else if (err.name === 'SequelizeUniqueConstraintError') {
+  }else {
+    res.status(400).json({
+      status: "Bad request",
+      message: "Registration unsuccessful",
+      statusCode: 400,
+    });
+  } 
+    if (err.name === 'SequelizeUniqueConstraintError') {
       return res.status(400).json({
         status: "error",
         message: "field exist",
