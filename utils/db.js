@@ -6,7 +6,7 @@ if (!DATABASE_URL) {
   }
 
 const sequelize = new Sequelize(DATABASE_URL, {
-    dialect: 'postgres', // Specify the dialect
+    dialect: 'postgres',
   dialectOptions: {
     ssl: process.env.NODE_ENV === 'production' ? {
       require: true,

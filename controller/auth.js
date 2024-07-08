@@ -29,7 +29,7 @@ const registerUser = async (req, res, next) => {
       expiresIn: 60 * 60,
     });
     const user = await User.create(newUser);
-     await Organisation.create({name:`${firstName}'s Organisation`})
+     await Organisation.create({name:`${firstName}'s Organisation`, orgId:uuidv4()})
     console.log(user)
     res.status(201).json({
       status: "success",
@@ -46,13 +46,13 @@ const registerUser = async (req, res, next) => {
       },
     });
   } catch (error) {
+    console.log(error)
     res.status(400).json({
       status: "Bad request",
       message: "Registration unsuccessful",
       statusCode: 400,
     });
-
-    // next(error);
+    next(error);
   }
 };
 const loginUser = async (req, res, next) => {

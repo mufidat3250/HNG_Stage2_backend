@@ -9,8 +9,13 @@ const errorHandler = (err, req, res, next) => {
         field: errorPath[0],
         message: errorMessages[0]
        } });
-    }else if(err.name === "SyntaxError"){
-      console.log(err.message)
+
+    }else if (err.name === 'SequelizeUniqueConstraintError') {
+      return res.status(400).json({
+        status: "error",
+        message: "field exist",
+      })}
+    else if(err.name === "SyntaxError"){
       return res.status(400).json({
         error: {
           message: "Syntax error",

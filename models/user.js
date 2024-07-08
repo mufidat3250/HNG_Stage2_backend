@@ -33,8 +33,6 @@ User.init({
     },
     phone:{
         type: DataTypes.STRING,
-        allowNull:false,
-        unique:true
     },
 }, {
     sequelize, 

@@ -1,6 +1,7 @@
 require('dotenv').config()
 
 const express = require('express')
+const bodyParser = require('body-parser')
 require('express-async-errors')
 const app = express()
 const userRouter = require('./routes/user')
@@ -11,6 +12,7 @@ const unknownEndpoint = require('./middlewares/unknownEndpoint')
 const tokenExtractor = require('./middlewares/tokenExtractor') 
 
 app.use(express.json())
+app.use(bodyParser.json());
 
 app.use(tokenExtractor)
 
