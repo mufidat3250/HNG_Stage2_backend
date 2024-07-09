@@ -11,6 +11,7 @@ const createOrganization = async (req, res, next) => {
       name,
       description,
     };
+    console.log({ req })
     const organisation = await Organisation.create(newOrganisation);
     res.status(201).json({
         status: "success",
