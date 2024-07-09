@@ -1,3 +1,4 @@
+const pg = require('pg')
 const {Sequelize, QueryTypes} = require('sequelize')
 const { DATABASE_URL } = require('./config')
 
@@ -7,6 +8,7 @@ if (!DATABASE_URL) {
 
 const sequelize = new Sequelize(DATABASE_URL, {
     dialect: 'postgres',
+    dialectModule: pg,
   dialectOptions: {
     ssl: process.env.NODE_ENV === 'production' ? {
       require: true,
