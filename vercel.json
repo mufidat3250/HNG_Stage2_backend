@@ -11,19 +11,6 @@
         "src": "/(.*)",
         "dest": "/"
       }
-    ],
-    "env":[
-        {
-            "MY_KEY": "iyanu3250",
-            "SECRET": "JWTSECRET"
-        },
-        {
-            "MY_KEY": "postgresql://postgres:RAfURyBtcieHyNXzUQUFVNeUqHcZvISg@monorail.proxy.rlwy.net:38203/railway",
-            "SECRET": "DATABASE_URL"
-        },
-        {
-            "MY_KEY": "8001",
-            "SECRET": "PORT"
-        }
     ]
+  
   }
